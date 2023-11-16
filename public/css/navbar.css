@@ -1,0 +1,40 @@
+nav {
+        background-color: black;
+        color:white;
+        padding: 1rem 0.5rem;
+        border-bottom: 1px solid rgb(20,20,20);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+
+nav a {
+        background-color: rgb(20,20,20);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        margin: 0.1rem;
+        color: white;
+}
+
+#user {
+        background-color: rgb(20,20,20);
+        border: none;
+        text-decoration: none;
+        padding: 0.75rem 2rem;
+        margin: 0.1rem;
+        color: white;
+}
+
+#logout {
+        background-color: rgb(50, 100, 200);
+        border: none;
+        text-decoration: none;
+        padding: 0.75rem 1rem;
+        margin: 0.1rem;
+        color: white;
+}
+
+#logout:hover {
+        background-color: rgb(20, 70, 170);
+        cursor: pointer;
+}

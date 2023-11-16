@@ -1,0 +1,171 @@
+body {
+        margin: 0;
+        background-color: black;
+}
+
+.container {
+        display: flex;
+        width: 100%;
+        color: white;
+}
+
+.friendList {
+        height: min(100vh);
+        border-right: 1px solid rgb(20,20,20);
+}
+
+.friendList h1 {
+        font-size: 1rem;
+        padding: 0.5rem 3rem;
+        border-bottom: 1px solid rgb(20,20,20);
+}
+
+.friend {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        font-size: 0.75rem;
+        background-color: transparent;
+}
+
+.friend h1 {
+        font-size: 1rem;
+        padding: 0;
+}
+.friendList div {
+        display: flex;
+        flex-direction: columns;
+}
+
+.friendList div div {
+        border-radius: 0.1rem;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        display: flex;
+        background-color: rgb(20,20,20);
+        flex-direction: column;
+}
+
+.unfriend {
+        padding: 0.75rem 0;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: red;
+        color: white
+}
+
+.unfriend:hover {
+       background-color: darkred; 
+        cursor: pointer
+}
+
+.friendSearch {
+        width: 100%;
+}
+ 
+.searchDiv {
+        padding: 1rem;
+        display: flex;
+}
+
+#input {
+        width: 100%;
+        border: none;
+        background-color: rgb(20,20,20);
+        color: white;
+        padding: 0.75rem 1rem;
+}
+
+#search {
+        background-color: rgb(50,150,230);
+        border: none;
+        color: white;
+        padding: 0.75rem 2rem;
+}
+
+#search:hover {
+        background-color: rgb(20,120,200);
+        cursor: pointer;
+}
+.results {
+        margin: 0 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgb(20,20,20);
+}
+
+.results div {
+        padding: 0 1rem;
+       display: flex;
+        background-color: rgb(20,20,20);
+        justify-content: space-between;
+}
+
+.results div button {
+        margin: 0.75rem 0;
+        padding: 0 2rem;
+        background-color: rgb(50,150,230);
+        color: white;
+        border: none;
+}
+
+.results div button:hover {
+        cursor: pointer;
+        background-color: rgb(20,120,200);
+}
+
+.requests {
+        height: min(100vh);
+        border-left: 1px solid rgb(20,20,20);
+}
+.requestList {
+        display: flex;
+        flex-direction: columns;
+}
+.requests h1 {
+        font-size: 1rem;
+        padding: 0.5rem 3rem;
+        border-bottom: 1px solid rgb(20,20,20);
+}
+.requestList {
+        display: flex;
+        flex-direction: columns;
+}
+.request {
+        width: 100%;
+        margin: 0.5rem;
+        padding: 1rem 0.5rem;
+        font-size: 0.75rem;
+        text-align: center;
+        background-color: rgb(20,20,20);
+        border-radius: 0.1rem;
+}
+
+.request h4 {
+        margin: 0;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: rgb(200,200,200);
+}
+.decline {
+        border:none;
+        background-color: rgb(230, 50, 100);
+        padding: 0.5rem 0.5rem;
+        color: white;
+        width: 50%;
+}
+
+.accept {
+        border:none;
+        background-color: rgb(50, 230, 100);
+        padding: 0.5rem 0.5rem;
+        color: white;
+        width: 48%;
+}
+.accept:hover {
+        cursor: pointer;
+        background-color: rgb(20,200,70);
+}
+.decline:hover {
+        cursor: pointer;
+        background-color: rgb(200,20,70);
+}

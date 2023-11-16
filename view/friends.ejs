@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/friends.css">
+    <title>Chatio - Friends</title>
+  </head>
+  <body>
+    <nav>
+      <h1>Chat.io</h1>
+      <div>
+        <button id="user"><%= username %></button>
+        <button id="logout">Logout</button>
+      </div>
+    </nav> 
+    <div class="container">
+      <div class="friendList">
+        <h1>Your Friends</h1>
+        <div>
+          <% if(friends.length > 0) { %>
+          <% friends.map((friend) => {%>
+          <div>
+          <a href="/chat/<%= friend.rel_id %>" class="friend">
+            <h1><%= friend.friendName %></h1>
+            <h1><%= friend.friendEmail %></h1>
+          </a>
+            <button onClick="handleUnfriend('<%=friend.rel_id%>', '<%=friend.friendEmail%>')" class="unfriend">Unfriend</button>
+          </div>
+          <% }) %>
+          <% } else { %>
+          <h1 class="noFriend">No Friends</h1>
+          <% } %>
+        </div>
+      </div>
+      <div class="friendSearch">
+        <div class="searchDiv">
+          <input id="input" type="text">
+          <button id="search">Find</button>
+        </div>
+        <div class="results">
+          <% if(searchResults) { %>
+          <% searchResults.map((result, index) => { %>
+          <div>
+            <h4><%= result.username %></h4>
+            <h4 id="<%= index %>" class="email"><%= result.email %></h4>
+            <% if(!result.isFriend) { %>
+            <button onClick="handleAddFriend(<%=index%>)">Add Friend</button>
+            <% } else { %>
+            <button id="removeFriend">Unfried</button>
+            <% } %>
+          </div>
+          <% })} %>
+        </div>
+      </div>
+      <div class="requests">
+        <h1>Incoming Friend Requests</h1>
+        <div class="requestList">
+          <% friendRequests.map((request, index) => { %>
+          <div class="request">
+            <h4 id="accept<%= index %>"><%= request.sender %></h4>
+            <button onClick="handleAcceptRequest(<%=index%>)" class="accept">Accept</button>
+            <button class="decline">Decline</button>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+    <script>
+    const findButton = document.getElementById("search");
+    const input = document.getElementById("input");
+
+    findButton.addEventListener("click", () => {
+      console.log(window.pathname);
+      window.location = "http://localhost:3000/friends?name=" + input.value;
+    })
+
+    async function handleAddFriend(index) {
+      const semail = "<%= email %>";
+      const remail = document.getElementById(index).innerHTML;
+
+      const data = await fetch("http://localhost:3000/friendrequest", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({"from": semail, "to": remail})
+      })
+
+      const parsedData = await data.json();
+
+      if(parsedData.error) {
+        console.log(parsedData.error);
+      } else {
+        console.log(parsedData.success);
+      }
+    }
+    
+    async function handleAcceptRequest(index) {
+      const senderEmail = document.getElementById(`accept${index}`).innerHTML;
+      const receiverEmail = "<%= email %>";
+      const parent = document.getElementById(`accept${index}`).parentNode;
+
+      console.log(senderEmail);
+
+      console.log(parent);
+      
+      const data = await fetch("http://localhost:3000/acceptrequest", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({"sender": senderEmail, "receiver": receiverEmail})
+      })
+
+      const parsedData = await data.json();
+      
+      if(parsedData.error) {
+        console.log(parsedData.error);
+      } else if(parsedData.success) {
+        parent.remove();
+      }
+    }
+
+    async function handleUnfriend(rel_id, email) {
+      const data = await fetch("http://localhost:3000/unfriend", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({"rel_id": rel_id, "email": email})
+      })
+
+      const parsedData = await data.json();
+
+      if(parsedData.error) {
+        console.log(parsedData.error);
+      } else if(parsedData.success) {
+        console.log(parsedData.success);
+      }
+    }
+    </script>
+    <script src="/js/logout.js" defer></script>
+  </body>
+</html>

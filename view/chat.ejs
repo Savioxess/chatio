@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/chat.css">
+<title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="leftBar">
+      <div class="friendList">
+      <h1>Your Friends</h1>
+      <div class="friends">
+        <% if(friends.length > 0) { %>
+        <% friends.map((friend) => {%>
+        <div class="friend">
+        <a href="/chat/<%= friend.rel_id %>">
+          <h1><%= friend.friendName %></h1>
+          <h1><%= friend.friendEmail %></h1>
+        </a>
+        </div>
+        <% }) %>
+        <% } else { %>
+        <h1 class="noFriend">No Friends</h1>
+        <% } %>
+      </div>
+      </div>
+      <div id="usernameDisplay">
+          <h1 id="username"><%= username %></h1>
+      </div>
+    </div>
+    <div class="chatWindow">
+      <div class="friendDetails">
+        <h1 id="friendName"><%= friend.username %></h1>
+        <h1 id="friendEmail"><%= friend.email %></h1>
+      </div>
+      <div id="chats">
+        <% if(chats.length > 0) { %>
+          <% chats.map((chat) => { %>
+            <div class="chat">
+            <h1 class="name"><%= chat.name %></h1>
+            <p class="message"><%= chat.message %></p>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+        <form class="messageInput" id="messageForm">
+        <input type="text" name="message">
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/clientWebSocket.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <title>Chatio - Chat with your friends with ease - Home</title>
+  </head>
+  <body>
+    <nav>
+      <h1>Chat.io</h1>
+      <div>
+        <button id="user"><%= username %></button>
+        <button id="logout">Logout</button>
+      </div>
+    </nav> 
+    <div class="container">
+      <div class="friends">
+        <h1>Friends</h1>
+        <a class="findFriend" href="/friends">Find Friend</a>
+        <div id="friendlist">
+          <% if(friends.length > 0) { %>
+          <% friends.map((friend) => {%>
+          <a href="/chat/<%=friend.rel_id%>">
+          <div class="friend">
+            <h1><%= friend.friendName %></h1>
+            <p><%= friend.friendEmail %></p>
+          </div> 
+          </a>
+          <% }) %>
+          <% } else { %>
+          <div class="emptyList">
+            <h1 class="noFriend">No Friends</h1>
+            <a class="button" href="/friends">Search For Friends</a>
+          </div>
+          <% } %>
+          <div>
+          </div>
+        </div>
+    <script src="/js/logout.js" defer></script>
+  </body>
+</html>

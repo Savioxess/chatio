@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  background-color: black;
+  overflow-y: hidden;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  color: white;
+}
+
+.leftBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgb(20,20,20);
+  max-height: 100vh;
+  height: 100vh;
+}
+
+.friendList {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.friendList h1 {
+  font-size: 1rem;
+  padding: 0.5rem 3rem;
+  border-bottom: 1px solid rgb(20,20,20);
+}
+
+.friend {
+  color: white;
+  text-align: center;
+  margin: 0.5rem;
+  font-size: 0.75rem;
+  background-color: rgb(20,20,20);
+  padding: 0.5rem 1rem;
+  border-radius: 0.1rem;
+}
+
+.friend a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+
+.friend a h1 {
+  font-size: 1rem;
+  padding: 0;
+}
+
+.friends {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+}
+
+#usernameDisplay {
+  font-size: 0.5rem;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  background-color: rgb(20,20,20);
+}
+
+.chatWindow {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.friendDetails {
+  padding: 0.25rem 1rem;
+  background-color: rgb(20,20,20);
+  color: white;
+}
+
+#friendName {
+  font-size: 1.5rem;
+ padding: 0rem;
+}
+
+#friendEmail {
+  color: rgb(150,150,150);
+  font-size: 1rem;
+}
+
+#chats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: rgb(10,10,10);
+}
+
+.messageInput {
+  display: flex;
+}
+
+.messageInput input {
+  color: white;
+  border: none;
+  background-color: black;
+  padding: 0.75rem;
+  flex-grow: 1;
+}
+.messageInput button {
+  border: none;
+  color: white;
+  padding: 0.75rem 2rem;
+  background-color: rgb(50,100,200);
+}
+
+.chat {
+  margin: 0.5rem 1rem;
+  background-color: rgb(20,20,20);
+  padding: 0.5rem 1rem;
+}
+
+.chat .name {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.chat .message {
+  font-size: 1rem;
+  color: rgb(200,200,200);
+}
+::-webkit-scrollbar {
+  background-color: rgb(40,40,40);
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(20,20,20);
+}
