@@ -8,7 +8,7 @@ Make sure you have Node >= 18
 ## Step 1
 
 Clone the repo and run the following command to install the required dependencies.
-` npm install `
+``` npm install ```
 
 **_NOTE:_**  Make sure you have MySQL installed on your system if you haven't already.
 
@@ -54,6 +54,6 @@ Keep the value of multipleStatements set to true always in order to not run into
 
 ## Step 4
 Run the following command in your terminal to run the server.
-` npx nodemon index.js `
+``` npx nodemon index.js ```
 
 It will ask you to confirm installation of nodemon, simply confirm and the server will be running.
